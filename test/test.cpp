@@ -32,9 +32,20 @@ TEST(reverse, CanReverse0)
 //-------------------------------------------
 
 TEST(prefix, CanFindPrefix) {
-  char *strs[] = { "abcd", "ab6d", "ab78" };
+  char *strs[] = { "ab7d", "ajcd", "abcd" };
 
-  char a[] = "ab";
+  char a[] = "a";
+
+  char *ans = Prefix(strs, 3);
+
+  for (int i = 0; a[i] != 0; i++)
+    EXPECT_EQ(a[i], ans[i]);
+}
+
+TEST(prefix, CanFindPrefixFromAllWord) {
+  char *strs[] = { "abcd", "abcd", "abcd" };
+
+  char a[] = "abcd";
 
   char *ans = Prefix(strs, 3);
 

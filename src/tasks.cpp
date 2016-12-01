@@ -33,11 +33,11 @@ int Rev(int a) {
 //----------------------------------------
 
 char* Prefix(char** a, int count) {
-  int num = -2;
-  for (int i = 0; a[0][i] != 0; i++) {
+  int num = -2, i, j;
+  for (i = 0; a[0][i] != 0; i++) {
     char ch = a[0][i];
 
-    for (int j = 0; j < count; j++)
+    for (j = 0; j < count; j++)
       if (a[j][i] != ch) {
         num = i - 1;
         break;
@@ -45,6 +45,9 @@ char* Prefix(char** a, int count) {
     if (num != -2)
       break;
   }
+
+  if ((i == strlen(a[0])) && (j == count))
+    num = strlen(a[0]) - 1;
 
   char* ans;
 
